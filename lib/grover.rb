@@ -122,6 +122,9 @@ class Grover
             if (debug == undefined || (typeof debug === 'object' && (debug.headless == undefined || debug.headless))) {
               return await page.#{convert_action}(options);
             }
+
+            // Close page
+            await page.close();
           } finally {
             if (browser) {
               await browser.close();
